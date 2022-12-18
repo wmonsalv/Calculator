@@ -2,15 +2,20 @@
 
 const express = require("express");
 const path = require("path");
+const bodyParser = require("body-parser");
 
 const app = express()
 
 //app config for css
 app.use(express.static(path.join(__dirname + "/public")));
+app.use(bodyParser.urlencoded({extended:true}));    //special function we use whenever we try to pass data from an html form
 
 app.get("/", function(req,res){
     res.sendFile(__dirname + "/index.html"); //helps server find file location
-    console.log(__dirname)
+})
+
+app.post("/", function(req,res){
+    res.send("test")
 })
 
 
