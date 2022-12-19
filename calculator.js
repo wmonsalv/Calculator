@@ -22,7 +22,7 @@ app.post("/", function(req,res){  //what we gather from body parser is passed as
 })
 
     function mod(n, m) {
-    var remain = n % m;
+    let remain = n % m;
     return Math.floor(remain >= 0 ? remain : remain + m);
     };
 
