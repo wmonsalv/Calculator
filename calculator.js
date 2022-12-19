@@ -8,15 +8,23 @@ const app = express()
 
 //app config for css
 app.use(express.static(path.join(__dirname + "/public")));
-app.use(bodyParser.urlencoded({extended:true}));    //special function we use whenever we try to pass data from an html form
+app.use(bodyParser.urlencoded({extended:true}));    //special function we need to use whenever we try to pass data from an html form
 
 app.get("/", function(req,res){
     res.sendFile(__dirname + "/index.html"); //helps server find file location
 })
 
 app.post("/", function(req,res){
-    res.send("test")
+    let num1 = parseInt(req.body.num1);
+    let num2 = parseInt(req.body.num2);
+    let result = mod(num1, num2);
+    res.send("The result of the calculation is " + result);
 })
+
+    function mod(n, m) {
+    var remain = n % m;
+    return Math.floor(remain >= 0 ? remain : remain + m);
+    };
 
 
 app.listen(3000, function(){
