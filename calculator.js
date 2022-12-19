@@ -15,7 +15,7 @@ app.get("/", function(req,res){
 })
 
 app.post("/", function(req,res){  //what we gather from body parser is passed as text, so we have to convert our data type to int if we wish to run some kind of mathematical op.
-    let num1 = parseInt(req.body.num1);
+    let num1 = parseInt(req.body.num1); //num1 and num2 were the names I assigned to the name attributes on the input form
     let num2 = parseInt(req.body.num2);
     let result = mod(num1, num2);
     res.send("The result of the calculation is " + result);
