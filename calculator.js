@@ -14,7 +14,7 @@ app.get("/", function(req,res){
     res.sendFile(__dirname + "/index.html"); //helps server find file location
 })
 
-app.post("/", function(req,res){
+app.post("/", function(req,res){  //what we gather from body parser is passed as text, so we have to convert our data type to int if we wish to run some kind of mathematical op.
     let num1 = parseInt(req.body.num1);
     let num2 = parseInt(req.body.num2);
     let result = mod(num1, num2);
